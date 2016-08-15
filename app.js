@@ -83,7 +83,7 @@ io.on("connection", function(socket) {
 		// Add User
 		users[socket.id] = data.name;
 		
-		console.log("-- " + socket.id + " connected");
+		console.log("-- " + socket.id + " ::: " + data.name + " connected");		
 
 		sendGameState(socket);
         
@@ -154,6 +154,16 @@ io.on("connection", function(socket) {
 
     socket.on("disconnect", function() {				
 		console.log("-- " + socket.id + " disconnected");
+		players.forEach(function(entry){
+			/*
+			if ( users[socket.id] === players[socket.id] ) {
+				console.log("-- " + socket.id) + " left the lobby, but we're not deleting the socket connection incase of re-connect");
+			}
+			*/
+			console.log(entry);
+		});
+		delete users[socket.id];		
+		sendGameState(socket);
     });
 });
 
