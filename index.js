@@ -90,9 +90,9 @@ $(document).ready(function() {
 
         var n = whoAt(p, true);
 
-        if (player === 1 && n === 1) {
+        if (player === 1 && (n === 1 || n === 10) ) {
             chain.push(p);
-        } else if (player === 2 && n === 2){
+        } else if (player === 2 && (n === 2 || n === 20)){
             chain.push(reversePos(p));
         }
     });
@@ -182,7 +182,7 @@ $(document).ready(function() {
         if (!moved) {
             return;
         }
-/*
+
         // redraw line
         $("svg polyline").remove();
         var unit = 10;
@@ -200,7 +200,7 @@ $(document).ready(function() {
         line.setAttribute("points", points);
 
         document.getElementById("board").appendChild(line);
-*/
+
 	});
 
     $(document).on("mouseup", "#board", function(event) {
@@ -231,7 +231,6 @@ $(document).ready(function() {
 
         $("svg polyline").remove();
         $("svg circle").remove();
-
 
         socket.emit("move", chain);
         chain = [];

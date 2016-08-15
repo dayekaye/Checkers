@@ -68,23 +68,25 @@ io.on("connection", function(socket) {
     socket.on("login", function(data) {
         // Check if name already taken
         var taken = false;
-        for (var i in users) {
-            if (users[i] === data.name) {
-                taken = true;
-            }
-        }
-
-        if (taken) {
-            socket.emit("name-taken");
-            return;
-        }
-
-        // Add User
-        users[socket.id] = data.name;
 		
-        console.log("-- " + socket.id + " connected");
+		for (var i in users) {
+			if (users[i] === data.name) {
+				taken = true;
+			}
+		}
 
-        sendGameState(socket);
+		if (taken) {
+			socket.emit("name-taken");
+			return;
+		}
+
+		// Add User
+		users[socket.id] = data.name;
+		
+		console.log("-- " + socket.id + " connected");
+
+		sendGameState(socket);
+        
     });
 
     socket.on("join", function() {
@@ -150,8 +152,8 @@ io.on("connection", function(socket) {
         sendGameState(socket);
     });
 
-    socket.on("disconnect", function() {
-        console.log("-- " + socket.id + " disconnected");
+    socket.on("disconnect", function() {				
+		console.log("-- " + socket.id + " disconnected");
     });
 });
 
