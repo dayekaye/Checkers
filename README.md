@@ -21,7 +21,7 @@ Install the npm modules
 	
 run the application
 	
-	node app.js
+	node lib/app.js
 	
 Visit `localhost:8080` to visit the site
 	
