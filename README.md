@@ -6,22 +6,22 @@ Checkers - A simple Socket.IO multiplayer game
 
 ## Installation Guide:
 
-	`git clone https://github.com/HardTacos/checkers.git`
+	git clone https://github.com/HardTacos/checkers.git
 	
-	Make sure that you have node installed. You can check this by running
+Make sure that you have node installed. You can check this by running
 	
-	````
+	
 	$ node -v
 	v6.3.1
-	````
 	
-	Install the npm modules
 	
-    `npm install`
+Install the npm modules
 	
-	run the application
+    npm install
 	
-	`node app.js`
+run the application
 	
-	Visit `localhost:8080` to visit the site
+	node app.js
+	
+Visit `localhost:8080` to visit the site
 	
