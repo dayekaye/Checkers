@@ -2,7 +2,6 @@ Checkers - A simple Socket.IO multiplayer game
 ===========================
 
 [![Build Status](https://travis-ci.org/NodeRedis/node_redis.svg?branch=master)](https://travis-ci.org/NodeRedis/node_redis)
-[![Build Status](https://travis-ci.org/HardTacos/checkers.svg?branch=master)](https://travis-ci.org/HardTacos/checkers)
 
 ## Installation Guide:
 
