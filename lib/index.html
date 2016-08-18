@@ -1,30 +1,57 @@
 <html>
     <head>
+	
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Custom CSS -->
+		<link href="css/landing-page.css" rel="stylesheet">
+		
         <title>Checkers</title>
         <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src="/index.js"></script>
 		<script src="/boardDraw.js"></script>
     </head>
-    <body>
-        <div id="user-info" style="display: none">
-            <label>Player 1:</label> <span id="player1"></span><br />
-            <label>Player 2:</label> <span id="player2"></span><br />
-            <label>Observers:</label> <span id="observers"></span><br />
-			<label>Turn:</label> <span id="turn"></span>
+	
+    <body class="body-background">
+		
+		<nav id="navbar" class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand topnav">Observers:</a>
+				<a id="observers" class="navbar-brand topnav"></a>
+				<button class="btn btn-default navbar-btn" id="join" style="display: none;">Join Game</button>
+            </div>
         </div>
-        <div id="login-form">
-            <label>Please Enter Your Name</label>
-            <input id="name" type="text" />
-            <button id="btn-login">Enter</button>
+    </nav>
+		
+		 
+        <div id="login-form" class="intro-header">
+			<div class="intro-message">
+				<h1>Checkers</h1>
+				<hr class="intro-divider">
+				<h3>Please Enter Your Name:</h3>
+				<input class="join-btn" id="name" type="text" />
+				<button class="join-btn btn" id="btn-login">Join</button>
+			</div>
         </div>
+		
+		<br />
+		<div align="center" class="game-board">
+			<svg id="board" viewBox="0 0 80 80" width="500" height="500" style="border: 1px solid #777">
+				<rect id="bg-board" x="0" y="0" width="80" height="80" fill="#444" />
+			</svg>
+		</div>
 
-        <button id="join" style="display: none;">Join Game</button><br />
-
-        <svg id="board" viewBox="0 0 80 80" width="500" height="500" style="border: 1px solid #777">
-            <rect id="bg-board" x="0" y="0" width="80" height="80" fill="#444" />
-        </svg>
-
+		
+		 <div align="center" class="players" id="user-info">
+			<p>Turn: <span id="turn"></span></p>
+            <p>Player 1: <span id="player1"></span>
+            &nbsp; &nbsp; &nbsp; &nbsp; Player 2: <span id="player2"></span></p>
+        </div>
+	
         <div id="cmd">
         </div>
 
@@ -33,5 +60,6 @@
             <div id="messages">
             </div>
         </div>
+	
     </body>
 </html>
