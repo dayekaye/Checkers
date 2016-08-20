@@ -5,7 +5,7 @@ var server = http.createServer(handler);
 var io = require("socket.io")(server);
 
 var players = [];
-var users = {};
+var users = {name: 'Daye'};
 
 var startBoard = [
     [0, 2, 0, 2, 0, 2, 0, 2],
@@ -194,7 +194,7 @@ function whoAt(pos) {
 //SHOULD
 describe('app', function () {
   it('should see client', function (done) {
-    users = should.have.property('name','Daye');
+    users.should.have.keys('name');
 
     done();
   });
